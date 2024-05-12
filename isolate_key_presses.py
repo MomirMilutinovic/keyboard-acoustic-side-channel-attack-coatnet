@@ -39,19 +39,6 @@ def find_treshold(energy, init_treshold, recording, step, target_keystrokes):
 
     return (keystrokes, cur_treshold)
 
-def nadji_prag(snimak, pocetni_prag, korak, trazeni_broj_pritisaka_tastera):
-    trenutni_prag = pocetni_prag
-    pritisci_tastera = izdvoj_pritiske_tastera(snimak, pocetni_prag, recording)
-    while len(pritisci_tastera) != trazeni_broj_pritisaka_tastera:
-        if len(pritisci_tastera) > trazeni_broj_pritisaka_tastera:
-            trenutni_prag += korak
-        else:
-            trenutni_prag -= korak
-        korak = korak * 0.99
-        pritisci_tastera = izdvoj_pritiske_tastera(snimak, trenutni_prag)
-
-    return (pritisci_tastera, trenutni_prag)
-
 parser = argparse.ArgumentParser(
                     prog='Keystroke extractor',
                     description='Extracts keystrokes from wav file')
