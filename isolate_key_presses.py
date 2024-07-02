@@ -50,12 +50,10 @@ parser.add_argument('--step', type=float, default = 1e7)
 parser.add_argument('--prefix', type=str, default = 'keystroke')
 args = parser.parse_args()
 
-# presume file already converted to wav.
 
 rate, aud_data = scipy.io.wavfile.read(args.filename)
 print(aud_data.shape, rate)
 
-# wav file is mono.
 channel_1 = aud_data[:]
 
 fourier = np.fft.fft(channel_1)

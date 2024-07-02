@@ -1,8 +1,11 @@
 # keyboard-acoustic-side-channel-attack-coatnet
-This is an implementation of the paper [A Practical Deep Learning-Based Acoustic Side
+This repo contains an implementation of the paper [A Practical Deep Learning-Based Acoustic Side
 Channel Attack on Keyboards](https://arxiv.org/pdf/2308.01074).
 
-`keyboard-side-channel.ipynb` contains the training run, and is the main file of the implmentation of the model used in the paper. However, the actual test results are in `keyboard-side-channel-classification-report` as the former file reports test results of the last epoch instead of the epoch in which the best validation accuracy was reached.
+The implementation of CoAtNet, and the training of the model is in `keyboard-side-channel.ipynb`, while the algorithm for isolating keystrokes from recordings is implmented in `isolate_key_presses.py`.
+
+# `isolate_key_presses.py` usage
+`python isolate_key_presses.py <path to recording> <number of keystrokes> --init_treshold <initial energy treshold for detecting keystrokes> --step <inital step by which to change the energy treshold> --prefix <path to the directory where the isolated keystrokes will be stored>
 
 # Acknowledgments
 I have found these resources useful while writing this notebook, and extracts of them are in this repository:
